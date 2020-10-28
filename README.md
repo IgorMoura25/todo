@@ -1,3 +1,7 @@
 ## TODO
 
-A project to remind you from you pendencies.
+A project to remind you from your pendencies.
+
+###### SUMMARY #####
+
+ASP.NET Core 3.1
