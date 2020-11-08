@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Api", "todo.api\Todo.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Models", "Todo.Models\Todo.Models.csproj", "{E8E6557E-CDA0-43A0-8F3E-FF7908FD7103}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Data", "Todo.Data\Todo.Data.csproj", "{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,18 @@ Global
 		{E8E6557E-CDA0-43A0-8F3E-FF7908FD7103}.Release|x64.Build.0 = Release|Any CPU
 		{E8E6557E-CDA0-43A0-8F3E-FF7908FD7103}.Release|x86.ActiveCfg = Release|Any CPU
 		{E8E6557E-CDA0-43A0-8F3E-FF7908FD7103}.Release|x86.Build.0 = Release|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Debug|x64.Build.0 = Debug|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Debug|x86.Build.0 = Debug|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Release|x64.ActiveCfg = Release|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Release|x64.Build.0 = Release|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Release|x86.ActiveCfg = Release|Any CPU
+		{960A1CF4-1C9A-47B8-AA97-A8FA0B40113D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
