@@ -1,26 +1,31 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using Dapper;
-using Todo.Data.Interfaces;
-using Todo.Models;
+using System.Linq;
+using System.Text;
+using Todo.Models.Note;
 
 namespace Todo.Data
 {
-    public class NoteDao : INoteDao
-    {
-        private readonly string _connectionString = @"server=localhost\SQLEXPRESS;database=todo;user=sa;password=123@mudar";
+	public class NoteDao : BaseDao
+	{
+		public NoteDao(string connectionString) : base(connectionString)
+		{
 
-        public IEnumerable<NoteModel> GetAllNotes()
-        {
-            var connection = new SqlConnection(_connectionString);
-            var notes = connection.Query<NoteModel>("SELECT * FROM Notes");
-            return notes;
-        }
+		}
 
-        public void Save(NoteModel note)
-        {
+		public GetNoteByIdResponseModel GetNoteById(GetNoteByIdRequestModel model)
+		{
+			return Get<GetNoteByIdResponseModel>("SP_TD_GET_NoteById", model);
+		}
 
-        }
-    }
+		public List<ListNotesResponseModel> ListNotes()
+		{
+			return List<ListNotesResponseModel>("select * from Notes");
+		}
+
+		public List<ListNoteTypesResponseModel> ListNoteTypes()
+		{
+			return List<ListNoteTypesResponseModel>("select * from NoteTypes");
+		}
+	}
 }

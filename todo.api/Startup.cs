@@ -10,44 +10,51 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Todo.Api.Configuration;
 using Todo.Data;
+using Todo.Data.Extensions;
 using Todo.Data.Interfaces;
 
 namespace Todo.Api
 {
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+	public class Startup
+	{
+		public Startup(IConfiguration configuration)
+		{
+			Configuration = configuration;
+		}
 
-        public IConfiguration Configuration { get; }
+		public IConfiguration Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllers();
-            services.AddSwaggerGen();
-            services.AddTransient<INoteDao, NoteDao>();
-        }
+		public void ConfigureServices(IServiceCollection services)
+		{
+			DotNetEnv.Env.Load();
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-                app.UseDeveloperExceptionPage();
+			IApiConfiguration apiConfiguration = new ApiConfiguration();
+			services.AddSingleton(apiConfiguration);
 
-            app.UseHttpsRedirection();
-            app.UseRouting();
-            app.UseAuthorization();
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo API v1.0.0");
-            });
-        }
-    }
+			services.AddControllers();
+			services.AddSwaggerGen();
+			services.RegisterDao(apiConfiguration.ConnectionString);
+		}
+
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+		{
+			if (env.IsDevelopment())
+				app.UseDeveloperExceptionPage();
+
+			app.UseHttpsRedirection();
+			app.UseRouting();
+			app.UseAuthorization();
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllers();
+			});
+			app.UseSwagger();
+			app.UseSwaggerUI(c =>
+			{
+				c.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo API v1.0.0");
+			});
+		}
+	}
 }
