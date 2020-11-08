@@ -1,3 +1,10 @@
+--DATABASE
+create database todo
+
+--USE DATABASE
+Use todo
+
+--TABLES
 create table NoteTypes
 (
 	NoteTypeId bigint constraint PK_NoteTypes primary key not null,
