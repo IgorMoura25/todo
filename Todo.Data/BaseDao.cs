@@ -29,7 +29,7 @@ namespace Todo.Data
 		public T Get<T>(string query, GetRequestModel param)
 		{
 			var connection = this.NewConnection();
-			var result = connection.QuerySingleOrDefault<T>(query, param, commandType: CommandType.StoredProcedure); //TODO: Descomentar quando a query for stored procedure
+			var result = connection.QuerySingleOrDefault<T>(query, param, commandType: CommandType.StoredProcedure);
 			return result;
 		}
 
