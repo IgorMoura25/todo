@@ -1,8 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Todo.Models.Enums;
 
-namespace Todo.Models.Note
+namespace Todo.Models.Entities.Note
 {
     public class ListNoteTypesResponseModel
     {

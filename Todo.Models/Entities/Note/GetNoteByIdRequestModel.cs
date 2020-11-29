@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Todo.Models.Base;
 
-namespace Todo.Models.Note
+namespace Todo.Models.Entities.Note
 {
 	public class GetNoteByIdRequestModel : GetRequestModel
 	{
