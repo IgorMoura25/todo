@@ -7,10 +7,9 @@ using Todo.Models.Base;
 
 namespace Todo.Data.Dapper
 {
-	public abstract class DataBaseOperationsDapper : IBaseDataOperations
+	public abstract class DataBaseOperationsDapper
 	{
-		//TODO: deixar aqui apenas os métodos básicos.. Tentar separar query, write e connections
-		protected string ConnectionString { get; set; }
+		protected string ConnectionString { get; set; } //TODO: carregar a connection string do environment
 
 		public DataBaseOperationsDapper(string connectionString)
 		{
@@ -22,11 +21,6 @@ namespace Todo.Data.Dapper
 			var sqlConnection = new SqlConnection(this.ConnectionString);
 			sqlConnection.Open();
 			return sqlConnection;
-		}
-
-		string IBaseDataOperations.ConnectionString()
-		{
-			throw new System.NotImplementedException();
 		}
 
 		public T Get<T>(string query, GetRequestModel param)

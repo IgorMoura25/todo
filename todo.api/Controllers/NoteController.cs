@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Todo.Data;
+using Todo.Data.Interfaces;
 using Todo.Models.Entities.Note;
 
 namespace Todo.Api.Controllers
@@ -9,8 +10,8 @@ namespace Todo.Api.Controllers
     [Route("")]
     public class NoteController : ControllerBase
     {
-        private NoteDao _noteDao { get; }
-        public NoteController(NoteDao noteDao)
+        private INoteDao _noteDao { get; }
+        public NoteController(INoteDao noteDao)
         {
             _noteDao = noteDao;
         }
