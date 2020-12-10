@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using Todo.Data.Interfaces;
 using Todo.Models.Entities.Note;
 
-namespace Todo.Data
+namespace Todo.Data.Dapper
 {
-    public class NoteDao : BaseDao
+    public class NoteDaoDapper : DataBaseOperationsDapper, INoteDao
     {
-        public NoteDao(string connectionString) : base(connectionString)
+        public NoteDaoDapper(string connectionString) : base(connectionString)
         {
 
         }

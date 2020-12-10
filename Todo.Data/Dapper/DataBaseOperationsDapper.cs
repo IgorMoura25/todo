@@ -1,20 +1,18 @@
-using Dapper;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
+using Dapper;
 using Todo.Data.Interfaces;
 using Todo.Models.Base;
 
-namespace Todo.Data
+namespace Todo.Data.Dapper
 {
-	public abstract class BaseDao 
+	public abstract class DataBaseOperationsDapper : IBaseDataOperations
 	{
+		//TODO: deixar aqui apenas os métodos básicos.. Tentar separar query, write e connections
 		protected string ConnectionString { get; set; }
 
-		public BaseDao(string connectionString)
+		public DataBaseOperationsDapper(string connectionString)
 		{
 			this.ConnectionString = connectionString;
 		}
@@ -26,19 +24,19 @@ namespace Todo.Data
 			return sqlConnection;
 		}
 
+		string IBaseDataOperations.ConnectionString()
+		{
+			throw new System.NotImplementedException();
+		}
+
 		public T Get<T>(string query, GetRequestModel param)
 		{
-			var connection = this.NewConnection();
-			var result = connection.QuerySingleOrDefault<T>(query, param, commandType: CommandType.StoredProcedure);
-			return result;
+			throw new System.NotImplementedException();
 		}
 
 		public List<T> List<T>(string query)
 		{
-			var connection = this.NewConnection();
-			var result = connection.Query<T>(query);
-			var objectList = result != null ? result.ToList<T>() : null;
-			return objectList;
+			throw new System.NotImplementedException();
 		}
 	}
 }

@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Todo.Data.Interfaces;
 
 namespace Todo.Data.Extensions
 {
@@ -7,7 +8,7 @@ namespace Todo.Data.Extensions
     {
         public static void RegisterDao(this IServiceCollection services, string connectionString)
         {
-            services.TryAddScoped(x => new NoteDao(connectionString));
+			services.AddSingleton<ISqlConnection, BaseDao>();
         }
     }
 }
