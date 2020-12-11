@@ -4,26 +4,26 @@ using Todo.Models.Entities.Note;
 
 namespace Todo.Data.Dapper
 {
-    public class NoteDaoDapper : DataBaseOperationsDapper, INoteDao
-    {
-        public NoteDaoDapper(string connectionString) : base(connectionString)
-        {
+	public class NoteDaoDapper : DataBaseOperationsDapper, INoteDao
+	{
+		//public NoteDaoDapper(string connectionString) : base(connectionString)
+		//{
+		//	//TODO: carregar a connection string do environment
+		//}
 
-        }
+		public GetNoteByIdResponseModel GetNoteById(GetNoteByIdRequestModel model)
+		{
+			return Get<GetNoteByIdResponseModel>("SP_TD_GET_NoteById", model);
+		}
 
-        public GetNoteByIdResponseModel GetNoteById(GetNoteByIdRequestModel model)
-        {
-            return Get<GetNoteByIdResponseModel>("SP_TD_GET_NoteById", model);
-        }
+		public List<ListNotesResponseModel> ListNotes()
+		{
+			return List<ListNotesResponseModel>("select * from Notes");
+		}
 
-        public List<ListNotesResponseModel> ListNotes()
-        {
-            return List<ListNotesResponseModel>("select * from Notes");
-        }
-
-        public List<ListNoteTypesResponseModel> ListNoteTypes()
-        {
-            return List<ListNoteTypesResponseModel>("select * from NoteTypes");
-        }
-    }
+		public List<ListNoteTypesResponseModel> ListNoteTypes()
+		{
+			return List<ListNoteTypesResponseModel>("select * from NoteTypes");
+		}
+	}
 }

@@ -30,12 +30,12 @@ namespace Todo.Api
 		{
 			DotNetEnv.Env.Load();
 
-			IApiConfiguration apiConfiguration = new ApiConfiguration();
-			services.AddSingleton(apiConfiguration);
+			//IApiConfiguration apiConfiguration = new ApiConfiguration();
+			//services.AddSingleton(apiConfiguration);
 
 			services.AddControllers();
 			services.AddSwaggerGen();
-			services.RegisterDao(apiConfiguration.ConnectionString);
+			services.RegisterDao();
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

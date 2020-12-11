@@ -9,16 +9,16 @@ namespace Todo.Data.Dapper
 {
 	public abstract class DataBaseOperationsDapper
 	{
-		protected string ConnectionString { get; set; } //TODO: carregar a connection string do environment
+		protected string _connectionString = System.Environment.GetEnvironmentVariable("TODO_API_CONNECTION_STRING");
 
-		public DataBaseOperationsDapper(string connectionString)
-		{
-			this.ConnectionString = connectionString;
-		}
+		//public DataBaseOperationsDapper(string connectionString)
+		//{
+		//	this._connectionString = connectionString;
+		//}
 
 		public SqlConnection NewConnection()
 		{
-			var sqlConnection = new SqlConnection(this.ConnectionString);
+			var sqlConnection = new SqlConnection(this._connectionString);
 			sqlConnection.Open();
 			return sqlConnection;
 		}

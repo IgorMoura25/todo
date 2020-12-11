@@ -7,7 +7,7 @@ namespace Todo.Data.Extensions
 {
 	public static class DaoExtension
 	{
-		public static void RegisterDao(this IServiceCollection services, string connectionString)
+		public static void RegisterDao(this IServiceCollection services)
 		{
 			services.AddSingleton<INoteDao, NoteDaoDapper>();
 		}
