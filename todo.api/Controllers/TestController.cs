@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Todo.Api.Controllers
 {
-	[Route("[Controller]")]
+	[ApiController]
+	[Route("[controller]")]
 	public class TestController : ControllerBase
 	{
+		[HttpGet]
 		[Route("[Action]")]
 		public string CommitHash()
 		{
