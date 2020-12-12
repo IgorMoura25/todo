@@ -6,11 +6,6 @@ namespace Todo.Data.Dapper
 {
 	public class NoteDaoDapper : DataBaseOperationsDapper, INoteDao
 	{
-		//public NoteDaoDapper(string connectionString) : base(connectionString)
-		//{
-		//	//TODO: carregar a connection string do environment
-		//}
-
 		public GetNoteByIdResponseModel GetNoteById(GetNoteByIdRequestModel model)
 		{
 			return Get<GetNoteByIdResponseModel>("SP_TD_GET_NoteById", model);

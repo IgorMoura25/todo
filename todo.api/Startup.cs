@@ -1,19 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using dotenv.net;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Todo.Api.Configuration;
-using Todo.Data;
 using Todo.Data.Extensions;
-using Todo.Data.Interfaces;
 
 namespace Todo.Api
 {
@@ -28,11 +19,7 @@ namespace Todo.Api
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			DotNetEnv.Env.Load();
-
-			//IApiConfiguration apiConfiguration = new ApiConfiguration();
-			//services.AddSingleton(apiConfiguration);
-
+			DotEnv.Config();
 			services.AddControllers();
 			services.AddSwaggerGen();
 			services.RegisterDao();
