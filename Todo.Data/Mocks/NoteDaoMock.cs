@@ -1,24 +1,26 @@
+using System;
 using System.Collections.Generic;
+using System.Text;
 using Todo.Data.Interfaces;
 using Todo.Models.Entities.Note;
 
-namespace Todo.Data.Dapper
+namespace Todo.Data.Mocks
 {
-	public class NoteDaoDapper : DataBaseOperationsDapper, INoteDao
+	public class NoteDaoMock : INoteDao
 	{
 		public GetNoteByIdResponseModel GetNoteById(GetNoteByIdRequestModel model)
 		{
-			return Get<GetNoteByIdResponseModel>("SP_TD_GET_NoteById", model);
+			return new GetNoteByIdResponseModel();
 		}
 
 		public List<ListNotesResponseModel> ListNotes()
 		{
-			return List<ListNotesResponseModel>("SP_TD_LST_Notes");
+			return new List<ListNotesResponseModel>();
 		}
 
 		public List<ListNoteTypesResponseModel> ListNoteTypes()
 		{
-			return List<ListNoteTypesResponseModel>("SP_TD_LST_NoteTypes");
+			return new List<ListNoteTypesResponseModel>();
 		}
 	}
 }

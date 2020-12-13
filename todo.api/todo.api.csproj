@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotenv.net" Version="2.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Todo.Configuration\Todo.Configuration.csproj" />
     <ProjectReference Include="..\Todo.Models\Todo.Models.csproj" />
     <ProjectReference Include="..\Todo.Data\Todo.Data.csproj" />
   </ItemGroup>

@@ -1,9 +1,5 @@
-using dotenv.net;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.IO;
-using Todo.Data.Dapper;
-using Todo.Data.Interfaces;
+using Todo.Configuration;
 
 namespace Todo.Tests
 {
@@ -11,8 +7,8 @@ namespace Todo.Tests
 	{
 		public void ConfigureServices(IServiceCollection services)
 		{
-			DotEnv.Config(filePath: "../../../../todo.api/.env");
-			services.AddSingleton<INoteDao, NoteDaoDapper>();
+			EnvironmentVariables.Load();
+			DependencyInjection.RegisterDependencies(services);
 		}
 	}
 }

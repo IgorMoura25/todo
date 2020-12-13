@@ -1,10 +1,9 @@
-using dotenv.net;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Todo.Data.Extensions;
+using Todo.Configuration;
 
 namespace Todo.Api
 {
@@ -19,10 +18,10 @@ namespace Todo.Api
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			DotEnv.Config();
 			services.AddControllers();
 			services.AddSwaggerGen();
-			services.RegisterDao();
+			EnvironmentVariables.Load();
+			DependencyInjection.RegisterDependencies(services);
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

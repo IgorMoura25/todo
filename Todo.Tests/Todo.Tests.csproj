@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="dotenv.net" Version="2.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.7.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="Xunit.DependencyInjection" Version="7.1.0" />
@@ -22,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Todo.Configuration\Todo.Configuration.csproj" />
     <ProjectReference Include="..\Todo.Data\Todo.Data.csproj" />
     <ProjectReference Include="..\Todo.Models\Todo.Models.csproj" />
   </ItemGroup>
