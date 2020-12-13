@@ -1,4 +1,7 @@
 using dotenv.net;
+using Todo.Configuration.Exceptions;
+using Todo.Configuration.services;
+using System;
 
 namespace Todo.Configuration
 {
@@ -6,8 +9,25 @@ namespace Todo.Configuration
 	{
 		public static void Load()
 		{
-			var path = System.IO.Directory.GetCurrentDirectory();
-			DotEnv.Config(filePath: "../../../../.env");
+			try
+			{
+				var directory = FindEnvFileService.TryGetEnvDirectoryInfo();
+				if (directory == null)
+				{
+					throw new EnvFileNotFoundException();
+				}
+				DotEnv.Config(filePath: $"{directory.FullName}/.env");
+			}
+			catch (EnvFileNotFoundException ex)
+			{
+				throw new Exception($"Não foi possível localizar o arquivo .env no escopo do projeto.");
+			}
+			catch (Exception)
+			{
+				throw;
+			}
+
+
 		}
 	}
 }

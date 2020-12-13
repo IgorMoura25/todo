@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Data", "Todo.Data\Todo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Tests", "Todo.Tests\Todo.Tests.csproj", "{D736CDF5-4A16-482B-93F8-C4E14EE12E18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todo.Configuration", "Todo.Configuration\Todo.Configuration.csproj", "{0AC2D5E2-C163-4ABB-8C5F-92F862B7D01E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Todo.Configuration", "Todo.Configuration\Todo.Configuration.csproj", "{0AC2D5E2-C163-4ABB-8C5F-92F862B7D01E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
