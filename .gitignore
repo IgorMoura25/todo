@@ -365,3 +365,5 @@ FodyWeavers.xsd
 
 # Environment file
 .env
+/todo.api/CurrentCommit.txt
+/todo.api/.config

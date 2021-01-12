@@ -2,15 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>48055a49-9106-4078-996e-64b9a71a1f93</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="dotenv.net" Version="2.1.1" />
+    <PackageReference Include="DotNetEnv" Version="1.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Todo.Configuration\Todo.Configuration.csproj" />
     <ProjectReference Include="..\Todo.Models\Todo.Models.csproj" />
     <ProjectReference Include="..\Todo.Data\Todo.Data.csproj" />
   </ItemGroup>
